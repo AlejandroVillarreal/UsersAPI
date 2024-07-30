@@ -1,0 +1,32 @@
+[
+    {
+        "Id": "5acb1435-8cc9-42e4-a365-dfa8f9c88d26",
+        "Name": "Ratty",
+        "Species": "Rat",
+        "Age": 2,
+        "Habitat": "Urban Areas",
+        "Weight": 250,
+        "Description": "A common city rat.",
+        "DateOfBirth": "2024-06-04"
+    },
+    {
+        "Id": "32e7a77e-0146-4b15-b7f8-58c447641910",
+        "Name": "Mickey",
+        "Species": "Mouse",
+        "Age": 1,
+        "Habitat": "Houses",
+        "Weight": 30,
+        "Description": "A small house mouse.",
+        "DateOfBirth": "2024-06-04"
+    },
+    {
+        "Id": "ab16dbca-ef93-4c7b-855d-774f89cfab69",
+        "Name": "Chippy",
+        "Species": "Chipmunk",
+        "Age": 3,
+        "Habitat": "Forests",
+        "Weight": 100,
+        "Description": "A forest chipmunk with distinctive stripes.",
+        "DateOfBirth": "2024-06-04"
+    }
+]

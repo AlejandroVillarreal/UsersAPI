@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\UserAPI",
+    "\\UserAPI.Core",
+    "\\UserAPI.Core\\Domain",
+    "\\UserAPI.Core\\Domain\\Entities",
+    "\\UserAPI.Core\\ServiceContracts",
+    "\\UserAPI.Core\\Services",
+    "\\UserAPI.Infrastructure",
+    "\\UserAPI\\bin",
+    "\\UserAPI\\Properties"
+  ],
+  "SelectedNode": "\\UsersAPI.sln",
+  "PreviewInSolutionExplorer": false
+}

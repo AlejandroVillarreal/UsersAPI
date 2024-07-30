@@ -1,0 +1,12 @@
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\bin\Debug\net7.0\PetAPI.Core.deps.json
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\bin\Debug\net7.0\PetAPI.Core.dll
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\bin\Debug\net7.0\PetAPI.Core.pdb
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\obj\Debug\net7.0\PetAPI.Core.csproj.AssemblyReference.cache
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\obj\Debug\net7.0\PetAPI.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\obj\Debug\net7.0\PetAPI.Core.AssemblyInfoInputs.cache
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\obj\Debug\net7.0\PetAPI.Core.AssemblyInfo.cs
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\obj\Debug\net7.0\PetAPI.Core.csproj.CoreCompileInputs.cache
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\obj\Debug\net7.0\PetAPI.Core.dll
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\obj\Debug\net7.0\refint\PetAPI.Core.dll
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\obj\Debug\net7.0\PetAPI.Core.pdb
+C:\Users\alex_\OneDrive\Documentos\GitHub\netcourse\PetAPI\PetAPI.Core\obj\Debug\net7.0\ref\PetAPI.Core.dll
