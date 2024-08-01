@@ -18,7 +18,7 @@ namespace UserAPI.Infrastructure.Repositories
 			_db = db;
 		}
 
-		public async Task<UserEntity> AddAsync(UserEntity? entity)
+		public async Task<UserEntity> CreateAsync(UserEntity? entity)
 		{
 			if (entity != null) {
 				_db.Users.Add(entity);
@@ -29,7 +29,27 @@ namespace UserAPI.Infrastructure.Repositories
 
 
 		}
-		
+
+		public async Task<bool> AddPetToUserAsync(UserEntity? entity, Guid petId)
+		{
+			if (entity != null)
+			{
+				UserEntity UserFromDb = _db.Users.Find(entity.Id);
+				if(UserFromDb != null)
+				{
+					UserFromDb.UserPets.Add(petId);
+					int rowsAffected = await _db.SaveChangesAsync();
+					return rowsAffected > 0;
+				}
+				throw new ArgumentException("User not found");
+
+
+			}
+			throw new ArgumentException("User can't be null");
+
+
+		}
+
 		public async Task<bool> DeleteAsync(Guid? id)
 		{
 
@@ -41,11 +61,12 @@ namespace UserAPI.Infrastructure.Repositories
 
 		public async Task<IEnumerable<UserEntity>> GetAllUsersAsync()
 		{
-			IEnumerable<UserEntity> Users = await _db.Users.OrderByDescending(order => order.Name).ToListAsync();
-			return Users;
+			//IEnumerable<UserEntity> Users = await _db.Users.OrderByDescending(order => order.Name).ToListAsync();
+			//return Users;
+			throw new NotImplementedException();
 		}
 
-		public async Task<UserEntity> GetByIdAsync(Guid? id)
+		public async Task<UserEntity> LoginAsync(Guid? id)
 		{
 			UserEntity UserById = await _db.Users.FirstOrDefaultAsync(User => User.Id == id);
 			return UserById;
@@ -53,22 +74,23 @@ namespace UserAPI.Infrastructure.Repositories
 
 		public async Task<UserEntity> UpdateUserAsync(UserEntity? User)
 		{
-			UserEntity? matchingUser = await _db.Users.FirstOrDefaultAsync(User => User.Id == User.Id);
-			if (matchingUser != null)
-			{
-				
-				matchingUser.Name = User.Name;
-				matchingUser.Habitat = User.Habitat;
-				matchingUser.DateOfBirth = User.DateOfBirth;
-				matchingUser.Weight = User.Weight;
-				matchingUser.Age = User.Age;
-				matchingUser.Species = User.Species;
-				matchingUser.Description = User.Description;
+			//UserEntity? matchingUser = await _db.Users.FirstOrDefaultAsync(User => User.Id == User.Id);
+			//if (matchingUser != null)
+			//{
 
-				await _db.SaveChangesAsync();
-				return matchingUser;
-			}
-			return User;
+			//	matchingUser.Name = User.Name;
+			//	matchingUser.Habitat = User.Habitat;
+			//	matchingUser.DateOfBirth = User.DateOfBirth;
+			//	matchingUser.Weight = User.Weight;
+			//	matchingUser.Age = User.Age;
+			//	matchingUser.Species = User.Species;
+			//	matchingUser.Description = User.Description;
+
+			//	await _db.SaveChangesAsync();
+			//	return matchingUser;
+			//}
+			//return User;
+			throw new NotImplementedException();
 		}
 			
 	}

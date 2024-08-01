@@ -25,7 +25,7 @@ namespace UserAPI.Core.Domain.Entities
 		[Required(ErrorMessage = "Email is required.")]
 		public string Email { get; set; }
 
-		public List<UserPetEntity> UserPets { get; set; } = new List<UserPetEntity>();
+		public List<Guid> UserPets { get; set; } = new List<Guid>();
 
 		
 	}

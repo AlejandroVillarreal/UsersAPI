@@ -23,7 +23,7 @@ namespace UserAPI.Core.Services
 		{
 			if (User != null)
 			{
-				UserEntity? UserById = await _UserRepository.GetByIdAsync(User.Id);
+				UserEntity? UserById = await _UserRepository.LoginAsync(User.Id);
 				if (UserById != null)
 				{
 					if(!PasswordHelper.VerifyPassword(User.PasswordHash, UserById.PasswordHash))

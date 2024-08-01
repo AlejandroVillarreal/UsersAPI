@@ -19,6 +19,13 @@ namespace UserAPI.Core.Services
 		}
 		public async Task AddPetAsync(Guid userId, UserPetEntity UserPet)
 		{
+
+			if (UserPet == null)
+			{
+				throw new ArgumentNullException(nameof(UserPet));
+			}
+
+			_UserRepository.AddPetToUserAsync(UserPet.UserId);
 			
 		}
 	}

@@ -9,6 +9,6 @@ namespace UserAPI.Core.ServiceContracts
 {
 	public interface IUserAddPetService
 	{
-		Task AddPetAsync(Guid userId, UserPetEntity UserPet);
+		Task AddPetToUserAsync(Guid userId, UserPetEntity UserPet);
 	}
 }
