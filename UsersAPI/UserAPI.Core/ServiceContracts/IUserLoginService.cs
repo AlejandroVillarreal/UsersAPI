@@ -9,6 +9,6 @@ namespace UserAPI.Core.ServiceContracts
 {
 	public interface IUserLoginService
 	{
-		Task<UserEntity> LoginUserAsync(UserEntity? entity);
+		Task<UserEntity> LoginUserAsync(String email, String password);
 	}
 }

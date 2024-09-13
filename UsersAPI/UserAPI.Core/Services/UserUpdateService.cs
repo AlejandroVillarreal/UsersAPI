@@ -19,19 +19,19 @@ namespace UserAPI.Core.Services
 		}
 		public async Task<UserEntity> UpdateUserAsync(Guid id,UserEntity? User)
 		{
-			UserEntity? editedUser = await _UserRepository.GetByIdAsync(id);
+			UserEntity? editedUser = await _UserRepository.GetUserAsync(User.Email);
 			if(editedUser == null)
 			{
 				throw new ArgumentException("User with the given Id was not found");
 			}
-			
-			editedUser.Weight = User.Weight;
-			editedUser.Age = User.Age;
-			editedUser.Habitat = User.Habitat;
-			editedUser.Age = User.Age;
-			editedUser.DateOfBirth = User.DateOfBirth;
-			editedUser.Description = User.Description;
-			editedUser.Species = User.Species;
+
+			//editedUser.Weight = User.Weight;
+			//editedUser.Age = User.Age;
+			//editedUser.Habitat = User.Habitat;
+			//editedUser.Age = User.Age;
+			// editedUser.DateOfBirth = User.DateOfBirth;
+			//editedUser.Description = User.Description;
+			//editedUser.Species = User.Species;
 
 
 			ValidationContext validationContext = new ValidationContext(editedUser);

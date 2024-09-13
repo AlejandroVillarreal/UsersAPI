@@ -9,8 +9,9 @@
     "\\UserAPI.Core\\Services",
     "\\UserAPI.Infrastructure",
     "\\UserAPI\\bin",
+    "\\UserAPI\\Controllers",
     "\\UserAPI\\Properties"
   ],
-  "SelectedNode": "\\UsersAPI.sln",
+  "SelectedNode": "\\UserAPI\\users.json",
   "PreviewInSolutionExplorer": false
 }

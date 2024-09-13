@@ -7,8 +7,8 @@ using UserAPI.Core.Domain.Entities;
 
 namespace UserAPI.Core.ServiceContracts
 {
-	public interface IUserAddPetService
+	public interface IUserAddUserService
 	{
-		Task AddPetToUserAsync(Guid userId, UserPetEntity UserPet);
+		Task AddUserToUserAsync(Guid UserId, UserUserEntity UserUser);
 	}
 }

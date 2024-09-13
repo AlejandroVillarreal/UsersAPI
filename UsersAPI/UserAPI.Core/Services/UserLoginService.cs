@@ -19,14 +19,14 @@ namespace UserAPI.Core.Services
 			_UserRepository = UserRepository;
 		}
 		
-		public async Task<UserEntity> LoginUserAsync(UserEntity? User)
+		public async Task<UserEntity> LoginUserAsync(string UserEmail, string UserPassword)
 		{
-			if (User != null)
+			if (UserEmail != null)
 			{
-				UserEntity? UserById = await _UserRepository.LoginAsync(User.Id);
+				UserEntity? UserById = await _UserRepository.GetUserAsync(UserEmail);
 				if (UserById != null)
 				{
-					if(!PasswordHelper.VerifyPassword(User.PasswordHash, UserById.PasswordHash))
+					if(!PasswordHelper.VerifyPassword(UserPassword, UserById.PasswordHash))
 					{
 						throw new ArgumentException("Incorrect password");
 					}

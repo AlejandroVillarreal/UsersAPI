@@ -11,9 +11,10 @@ namespace UserAPI.Core.Domain.RepositoryContracts
 	{
 		Task<UserEntity> CreateAsync(UserEntity? entity);
 		Task<UserEntity> LoginAsync(Guid? id);
-		Task<bool> AddPetToUserAsync(UserEntity? entity, Guid petId);
+		Task<UserEntity> GetUserAsync(String Email);
+		Task<bool> AddUserToUserAsync(UserEntity? entity, Guid UserId);
 
-
+		
 		//----------------WIP----------------------------------------------------------------
 		Task<bool> DeleteAsync(Guid? id);
 		Task<IEnumerable<UserEntity>> GetAllUsersAsync();

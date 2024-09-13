@@ -34,7 +34,7 @@ namespace UserAPI.Core.Services
 			}
 			//If valid assign a new Guid to User
 			User.Id = Guid.NewGuid();
-			await _UserRepository.AddAsync(User);
+			await _UserRepository.CreateAsync(User);
 			
 			return User;
 		}

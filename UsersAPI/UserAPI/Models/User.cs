@@ -9,25 +9,15 @@ namespace UserAPI.Models
 
 		[Required()]
 		[MaxLength(100)]
-		public string Name { get; set; }
-
-		[Required]
-		public string Species { get; set; }
+		public string Username { get; set; }
 		
-		[Range(0, int.MaxValue)]
-		public int Age { get; set; }
-
 		[Required()]
-		public string Habitat { get; set; }
-
-		[Range(0,float.MaxValue)]
-		public float Weight { get; set; }
-
-		public string? Description { get; set; }
-
-		[Required()]
-		public DateTime DateOfBirth { get; set; }
-
+		public string PasswordHash { get; set; }
 		
+		[Required()]
+		public string Email { get; set; }
+
+		public List<Guid> UserUsers { get; set; } = new List<Guid>();
 	}
+	
 }

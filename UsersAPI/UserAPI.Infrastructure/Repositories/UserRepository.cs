@@ -30,14 +30,14 @@ namespace UserAPI.Infrastructure.Repositories
 
 		}
 
-		public async Task<bool> AddPetToUserAsync(UserEntity? entity, Guid petId)
+		public async Task<bool> AddUserToUserAsync(UserEntity? entity, Guid UserId)
 		{
 			if (entity != null)
 			{
 				UserEntity UserFromDb = _db.Users.Find(entity.Id);
 				if(UserFromDb != null)
 				{
-					UserFromDb.UserPets.Add(petId);
+					UserFromDb.UserUsers.Add(UserId);
 					int rowsAffected = await _db.SaveChangesAsync();
 					return rowsAffected > 0;
 				}
@@ -71,7 +71,11 @@ namespace UserAPI.Infrastructure.Repositories
 			UserEntity UserById = await _db.Users.FirstOrDefaultAsync(User => User.Id == id);
 			return UserById;
 		}
-
+		public async Task<UserEntity> GetUserAsync(String Email)
+		{
+			UserEntity UserById = await _db.Users.FirstOrDefaultAsync(User => User.Email == Email);
+			return UserById;
+		}
 		public async Task<UserEntity> UpdateUserAsync(UserEntity? User)
 		{
 			//UserEntity? matchingUser = await _db.Users.FirstOrDefaultAsync(User => User.Id == User.Id);

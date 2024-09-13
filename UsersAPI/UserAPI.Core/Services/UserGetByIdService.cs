@@ -21,7 +21,7 @@ namespace UserAPI.Core.Services
 
 			if (id != null)
 			{
-				UserEntity? UserById = await _UserRepository.GetByIdAsync(id.Value);
+				UserEntity? UserById = await _UserRepository.GetUserAsync("user email");
 				if (UserById != null)
 				{
 					return UserById;
