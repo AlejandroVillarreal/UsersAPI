@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace UserAPI.Infrastructure.DbContext
 {
@@ -21,8 +22,15 @@ namespace UserAPI.Infrastructure.DbContext
 
 			modelBuilder.Entity<UserEntity>().ToTable("Users");
 
-			string UsersJson = System.IO.File.ReadAllText("Users.json");
-			List<UserEntity> Users = System.Text.Json.JsonSerializer.Deserialize<List<UserEntity>>(UsersJson);
+			modelBuilder.Entity<UserEntity>()
+		.Property(u => u.UserPets)
+		.HasConversion(
+			v => JsonSerializer.Serialize(v, new JsonSerializerOptions()), // Convert List<Guid> to JSON string
+			v => JsonSerializer.Deserialize<List<Guid>>(v, new JsonSerializerOptions())); // Convert JSON string back to List<Guid>
+		
+
+		string UsersJson = System.IO.File.ReadAllText("Users.json");
+			List <UserEntity> Users = System.Text.Json.JsonSerializer.Deserialize<List<UserEntity>>(UsersJson);
 
 			foreach (UserEntity User in Users)
 			{

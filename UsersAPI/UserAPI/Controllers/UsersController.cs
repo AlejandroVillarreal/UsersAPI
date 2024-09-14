@@ -14,7 +14,7 @@ namespace UserAPI.Controllers
 	public class UsersController : ControllerBase
 	{
 		private readonly IUserCreateService _UserCreateService;
-		private readonly IUserAddUserService _UserAddUserService;
+		private readonly IUserAddPetService _UserAddPetService;
 		private readonly IUserLoginService _UserLoginService;
 
 		private readonly IUserGetAllService _UserGetAllService;
@@ -85,7 +85,7 @@ namespace UserAPI.Controllers
 				Username = User.Username,
 				Email = User.Email,
 				PasswordHash = User.PasswordHash,
-				UserUsers = User.UserUsers
+				UserPets = User.UserPets
 			};
 			
 			await _UserCreateService.CreateAsync(newUser);

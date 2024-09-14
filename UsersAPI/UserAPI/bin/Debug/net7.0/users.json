@@ -5,16 +5,10 @@
         "PasswordHash": "hashed_password123",
         "Email": "john.doe@example.com",
         "UserPets": [
-            {
-                "PetId": "5acb1435-8cc9-42e4-a365-dfa8f9c88d26",
-                "Name": "Ratty",
-                "Species": "SmallMammal",
-                "Age": 2,
-                "Habitat": "Urban Areas",
-                "Weight": 250,
-                "Description": "A common city rat.",
-                "DateOfBirth": "2022-06-04"
-            }
+            
+                "5acb1435-8cc9-42e4-a365-dfa8f9c88d26"
+                
+            
         ]
     },
     {
@@ -23,51 +17,27 @@
         "PasswordHash": "hashed_password456",
         "Email": "jane.smith@example.com",
         "UserPets": [
-            {
-                "PetId": "32e7a77e-0146-4b15-b7f8-58c447641910",
-                "Name": "Mickey",
-                "Species": "SmallMammal",
-                "Age": 1,
-                "Habitat": "Houses",
-                "Weight": 30,
-                "Description": "A small house mouse.",
-                "DateOfBirth": "2023-06-04"
-            },
-            {
-                "PetId": "ab16dbca-ef93-4c7b-855d-774f89cfab69",
-                "Name": "Chippy",
-                "Species": "SmallMammal",
-                "Age": 3,
-                "Habitat": "Forests",
-                "Weight": 100,
-                "Description": "A forest chipmunk with distinctive stripes.",
-                "DateOfBirth": "2021-06-04"
-            }
+            
+                "32e7a77e-0146-4b15-b7f8-58c447641910",
+                "ab16dbca-ef93-4c7b-855d-774f89cfab69"
+                   
         ]
     },
     {
-        "Id": "c3b9d721-6f23-4d2c-8e4g-c2fbc9dfea89",
+        "Id": "c3b9d721-6f23-4d2c-8e4f-c2fbc9dfea89",
         "Username": "alice_johnson",
         "PasswordHash": "hashed_password789",
         "Email": "alice.johnson@example.com",
         "UserPets": []
     },
     {
-        "Id": "d4c8e831-7g34-4e3d-8f5h-d3fbc9dfeab0",
+        "Id": "d4c8e831-7a34-4e3d-8f5e-d3fbc9dfeab0",
         "Username": "bob_brown",
         "PasswordHash": "hashed_password012",
         "Email": "bob.brown@example.com",
         "UserPets": [
-            {
-                "PetId": "0d8e8e7e-0145-4b20-bb9f-58c447641912",
-                "Name": "Bella",
-                "Species": "Dog",
-                "Age": 4,
-                "Habitat": "House",
-                "Weight": 500,
-                "Description": "A friendly house dog.",
-                "DateOfBirth": "2020-05-01"
-            }
+
+            "0d8e8e7e-0145-4b20-bb9f-58c447641912"
         ]
     }
 ]

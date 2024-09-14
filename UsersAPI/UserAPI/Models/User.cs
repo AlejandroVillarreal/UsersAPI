@@ -17,7 +17,7 @@ namespace UserAPI.Models
 		[Required()]
 		public string Email { get; set; }
 
-		public List<Guid> UserUsers { get; set; } = new List<Guid>();
+		public List<Guid> UserPets { get; set; } = new List<Guid>();
 	}
 	
 }

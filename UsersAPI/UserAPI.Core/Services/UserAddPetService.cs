@@ -9,20 +9,20 @@ using UserAPI.Core.ServiceContracts;
 
 namespace UserAPI.Core.Services
 {
-	public class UserAddUserService : IUserAddUserService
+	public class UserAddPetService : IUserAddPetService
 	{
 		private readonly IUserRepository _UserRepository;
 
-		public UserAddUserService(IUserRepository UserRepository)
+		public UserAddPetService(IUserRepository UserRepository)
 		{
 			_UserRepository = UserRepository;
 		}
-		public async Task AddUserToUserAsync(Guid UserId, UserUserEntity UserUser)
+		public async Task AddPetToUserAsync(Guid UserId, List<Guid> UserPets)
 		{
 
-			if (UserUser == null)
+			if (UserPets == null)
 			{
-				throw new ArgumentNullException(nameof(UserUser));
+				throw new ArgumentNullException(nameof(UserPets));
 			}
 
 			//_UserRepository.AddUserToUserAsync(UserUser.UserId);

@@ -37,7 +37,7 @@ namespace UserAPI.Infrastructure.Repositories
 				UserEntity UserFromDb = _db.Users.Find(entity.Id);
 				if(UserFromDb != null)
 				{
-					UserFromDb.UserUsers.Add(UserId);
+					UserFromDb.UserPets.Add(UserId);
 					int rowsAffected = await _db.SaveChangesAsync();
 					return rowsAffected > 0;
 				}
