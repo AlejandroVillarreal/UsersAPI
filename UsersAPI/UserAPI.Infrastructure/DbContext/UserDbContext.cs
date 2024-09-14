@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using System.Text.Json.Serialization;
 
 namespace UserAPI.Infrastructure.DbContext
 {
@@ -22,20 +26,33 @@ namespace UserAPI.Infrastructure.DbContext
 
 			modelBuilder.Entity<UserEntity>().ToTable("Users");
 
-			modelBuilder.Entity<UserEntity>()
-		.Property(u => u.UserPets)
-		.HasConversion(
-			v => JsonSerializer.Serialize(v, new JsonSerializerOptions()), // Convert List<Guid> to JSON string
-			v => JsonSerializer.Deserialize<List<Guid>>(v, new JsonSerializerOptions())); // Convert JSON string back to List<Guid>
-		
 
-		string UsersJson = System.IO.File.ReadAllText("Users.json");
-			List <UserEntity> Users = System.Text.Json.JsonSerializer.Deserialize<List<UserEntity>>(UsersJson);
+			var petsConverter = new ValueConverter<List<Guid>, string>(
+		   v => JsonSerializer.Serialize(v, new JsonSerializerOptions { WriteIndented = false }),
+		   v => JsonSerializer.Deserialize<List<Guid>>(v, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
+	   );
+
+			var petsComparer = new ValueComparer<List<Guid>>(
+				(c1, c2) => c1.SequenceEqual(c2), // Compare if sequences are equal
+				c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())), // Calculate hashcode
+				c => c.ToList() // Deep copy the list
+			);
+
+
+
+			string UsersJson = System.IO.File.ReadAllText("Users.json");
+			List<UserEntity> Users = System.Text.Json.JsonSerializer.Deserialize<List<UserEntity>>(UsersJson);
 
 			foreach (UserEntity User in Users)
 			{
+				modelBuilder.Entity<UserEntity>().Property(u => u.UserPets)
+			.HasConversion(petsConverter) // Apply the value converter
+			.Metadata.SetValueComparer(petsComparer); // Apply the value comparer
 				modelBuilder.Entity<UserEntity>().HasData(User);
 			}
+
+
+
 		}
 	}
 }
