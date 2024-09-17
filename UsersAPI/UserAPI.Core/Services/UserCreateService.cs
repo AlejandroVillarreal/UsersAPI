@@ -32,7 +32,11 @@ namespace UserAPI.Core.Services
 			}
 			//If valid assign a new Guid to User
 			User.Id = Guid.NewGuid();
-			User.PasswordHash = PasswordHelper.HashPassword(User.PasswordHash);
+
+			//Generate a salt and hash the password
+			string salt = PasswordHelper.GenerateSalt();
+			User.PasswordSalt = salt;
+			User.PasswordHash = PasswordHelper.HashPassword(User.PasswordHash, salt);
 			await _UserRepository.CreateAsync(User);
 
 			return User;

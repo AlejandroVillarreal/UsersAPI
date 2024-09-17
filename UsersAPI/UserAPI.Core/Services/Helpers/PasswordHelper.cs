@@ -9,18 +9,29 @@ namespace UserAPI.Core.Services.Helpers
 {
 	public static class PasswordHelper
 	{
-		public static string HashPassword(string password)
+		// Generate a random salt
+		public static string GenerateSalt(int size = 16)
+		{
+			var saltBytes = new byte[size];
+			RandomNumberGenerator.Fill(saltBytes);
+			return Convert.ToBase64String(saltBytes);
+		}
+
+		public static string HashPassword(string password, string salt)
 		{
 			using (var sha256 = SHA256.Create())
 			{
-				var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-				return Convert.ToBase64String(bytes);
+				var saltedPassword = $"{password}{salt}";
+				var hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(saltedPassword));
+				return Convert.ToBase64String(hashBytes);
 			}
 		}
-		public static bool VerifyPassword(string password, string storedHash)
+
+		public static bool VerifyPassword(string password, string storedHash, string storedSalt)
 		{
-			var hash = HashPassword(password);
+			var hash = HashPassword(password,storedSalt);
 			return hash == storedHash;
+			
 		}
 	}
 }

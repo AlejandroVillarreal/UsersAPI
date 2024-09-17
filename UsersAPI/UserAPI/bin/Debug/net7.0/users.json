@@ -3,18 +3,20 @@
         "Id": "d1a7c621-4c36-4c0b-8a3d-b0fbc9dfe8a6",
         "Username": "john_doe",
         "PasswordHash": "hashed_password123",
+        "PasswordSalt": "",
         "Email": "john.doe@example.com",
         "UserPets": [
-            
-                "5acb1435-8cc9-42e4-a365-dfa8f9c88d26"
-                
-            
+
+            "5acb1435-8cc9-42e4-a365-dfa8f9c88d26"
+
+
         ]
     },
     {
         "Id": "b2a8c621-5e12-4c0b-8d3f-b1fbc9dfe9b7",
         "Username": "jane_smith",
         "PasswordHash": "hashed_password456",
+        "PasswordSalt" :  "",
         "Email": "jane.smith@example.com",
         "UserPets": [
             
@@ -27,6 +29,7 @@
         "Id": "c3b9d721-6f23-4d2c-8e4f-c2fbc9dfea89",
         "Username": "alice_johnson",
         "PasswordHash": "hashed_password789",
+        "PasswordSalt": "",
         "Email": "alice.johnson@example.com",
         "UserPets": []
     },
@@ -34,6 +37,7 @@
         "Id": "d4c8e831-7a34-4e3d-8f5e-d3fbc9dfeab0",
         "Username": "bob_brown",
         "PasswordHash": "hashed_password012",
+        "PasswordSalt": "",
         "Email": "bob.brown@example.com",
         "UserPets": [
 

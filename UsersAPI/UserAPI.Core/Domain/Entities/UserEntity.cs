@@ -21,13 +21,14 @@ namespace UserAPI.Core.Domain.Entities
 
 		[Required(ErrorMessage = "Password is required.")]
 		public string PasswordHash { get; set; }
+		
 
 		[Required(ErrorMessage = "Email is required.")]
 		public string Email { get; set; }
 
 		public List<Guid> UserPets { get; set; } = new List<Guid>();
 
-		
+		public string PasswordSalt { get; set; }
 	}
 	
 	

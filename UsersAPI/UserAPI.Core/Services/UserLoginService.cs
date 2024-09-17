@@ -23,14 +23,14 @@ namespace UserAPI.Core.Services
 		{
 			if (UserEmail != null)
 			{
-				UserEntity? UserById = await _UserRepository.GetUserAsync(UserEmail);
-				if (UserById != null)
+				UserEntity? UserByEmail = await _UserRepository.GetUserAsync(UserEmail);
+				if (UserByEmail != null)
 				{
-					if(!PasswordHelper.VerifyPassword(UserPassword, UserById.PasswordHash))
+					if(!PasswordHelper.VerifyPassword(UserPassword, UserByEmail.PasswordHash, UserByEmail.PasswordSalt))
 					{
 						throw new ArgumentException("Incorrect password");
 					}
-					return UserById;
+					return UserByEmail;
 				}
 				throw new ArgumentException("Given User id doesn't exist");
 			}

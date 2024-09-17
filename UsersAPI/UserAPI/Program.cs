@@ -36,7 +36,9 @@ builder.Services.AddScoped<IUserGetAllService, UserGetAllService>();
 builder.Services.AddScoped<IUserGetByIdService, UserGetByIdService>();
 builder.Services.AddScoped<IUserAddService, UserAddService>();
 builder.Services.AddScoped<IUserUpdateService, UserUpdateService>();
+builder.Services.AddScoped<IUserCreateService, UserCreateService>();
 builder.Services.AddScoped<IUserDeleteService, UserDeleteService>();
+builder.Services.AddScoped<IUserLoginService, UserLoginService>();
 builder.Services.AddScoped<IUserRepository,UserRepository>();
 var app = builder.Build();
 

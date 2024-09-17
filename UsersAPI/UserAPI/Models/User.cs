@@ -13,7 +13,9 @@ namespace UserAPI.Models
 		
 		[Required()]
 		public string PasswordHash { get; set; }
+
 		
+
 		[Required()]
 		public string Email { get; set; }
 

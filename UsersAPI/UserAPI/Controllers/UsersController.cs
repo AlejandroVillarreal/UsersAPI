@@ -28,12 +28,16 @@ namespace UserAPI.Controllers
 			IUserGetByIdService UserGetByIdService,
 			IUserAddService UserAddService,
 			IUserUpdateService UserUpdateService,
+			IUserCreateService UserCreateService,
+			IUserLoginService UserLoginService,
 			IUserDeleteService UserDeleteService)
 		{
 			_UserGetAllService = UserGetAllService;
 			_UserGetByIdService = UserGetByIdService;
 			_UserAddService = UserAddService;
 			_UserUpdateService = UserUpdateService;
+			_UserCreateService = UserCreateService;
+			_UserLoginService = UserLoginService;
 			_UserDeleteService = UserDeleteService;
 		}
 		// GET: api/<UsersController>
@@ -66,8 +70,10 @@ namespace UserAPI.Controllers
 			var UserModel = new User
 			{
 				Email = UserById.Email,
-				PasswordHash = UserById.PasswordHash,
-				Username = UserById.Username
+				
+				//PasswordHash = UserById.PasswordHash,
+				Username = UserById.Username,
+				UserPets = UserById.UserPets,
 				
 			};
 			return Ok(UserModel);
@@ -87,7 +93,7 @@ namespace UserAPI.Controllers
 				Username = User.Username,
 				Email = User.Email,
 				PasswordHash = User.PasswordHash,
-				UserPets = User.UserPets
+				//UserPets = User.UserPets
 			};
 			
 			await _UserCreateService.CreateAsync(newUser);
@@ -95,16 +101,16 @@ namespace UserAPI.Controllers
 			return CreatedAtAction(nameof(GetUserById), new { id = User.Id }, User);
 		}
 		[HttpPost("login")]
-		public async Task<ActionResult<IEnumerable<User>>> LoginUser([FromBody] String UserEmail, String UserPassword)
+		public async Task<ActionResult<IEnumerable<User>>> LoginUser([FromBody] LoginRequest loginRequest)
 		{
 
-			if(UserEmail == null || UserPassword == null)
+			if(loginRequest.Email == null || loginRequest.Password == null)
 			{
 				return BadRequest();
 				
 			}
-			UserEntity LoggedUser = await _UserLoginService.LoginUserAsync(UserEmail, UserPassword);
-			return CreatedAtAction(nameof(GetUserById), LoggedUser);
+			UserEntity LoggedUser = await _UserLoginService.LoginUserAsync(loginRequest.Email, loginRequest.Password);
+			return CreatedAtAction(nameof(GetUserById), new { id = LoggedUser.Id }, LoggedUser);
 
 
 

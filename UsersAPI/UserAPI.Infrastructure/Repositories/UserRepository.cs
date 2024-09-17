@@ -73,8 +73,8 @@ namespace UserAPI.Infrastructure.Repositories
 		}
 		public async Task<UserEntity> GetUserAsync(String Email)
 		{
-			UserEntity UserById = await _db.Users.FirstOrDefaultAsync(User => User.Email == Email);
-			return UserById;
+			UserEntity User = await _db.Users.FirstOrDefaultAsync(User => User.Email == Email);
+			return User;
 		}
 		public async Task<UserEntity> UpdateUserAsync(UserEntity? User)
 		{
@@ -96,6 +96,11 @@ namespace UserAPI.Infrastructure.Repositories
 			//return User;
 			throw new NotImplementedException();
 		}
-			
+
+		public async Task<UserEntity> GetUserByIdAsync(Guid? id)
+		{
+			UserEntity UserById = await _db.Users.FirstOrDefaultAsync(User => User.Id == id);
+			return UserById;
+		}
 	}
 }

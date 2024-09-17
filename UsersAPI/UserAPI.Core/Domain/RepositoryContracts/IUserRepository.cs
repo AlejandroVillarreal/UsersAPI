@@ -12,6 +12,7 @@ namespace UserAPI.Core.Domain.RepositoryContracts
 		Task<UserEntity> CreateAsync(UserEntity? entity);
 		Task<UserEntity> LoginAsync(Guid? id);
 		Task<UserEntity> GetUserAsync(String Email);
+		Task<UserEntity> GetUserByIdAsync(Guid? id);
 		Task<bool> AddUserToUserAsync(UserEntity? entity, Guid UserId);
 
 		
