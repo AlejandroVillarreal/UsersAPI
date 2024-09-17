@@ -3,14 +3,14 @@
     "",
     "\\UserAPI",
     "\\UserAPI.Core",
-    "\\UserAPI.Core\\ServiceContracts",
-    "\\UserAPI.Core\\Services",
+    "\\UserAPI.Core\\Domain",
+    "\\UserAPI.Core\\Domain\\Entities",
     "\\UserAPI.Infrastructure",
     "\\UserAPI.Infrastructure\\DbContext",
     "\\UserAPI\\bin",
     "\\UserAPI\\Controllers",
     "\\UserAPI\\Properties"
   ],
-  "SelectedNode": "\\UserAPI\\Controllers\\UsersController.cs",
+  "SelectedNode": "\\UserAPI.Core\\Domain\\Entities\\UserEntity.cs",
   "PreviewInSolutionExplorer": false
 }

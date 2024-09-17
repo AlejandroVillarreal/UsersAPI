@@ -40,20 +40,22 @@ namespace UserAPI.Controllers
 		[HttpGet]
 		public async Task<ActionResult<IEnumerable<User>>> GetUsers()
 		{
-			//IEnumerable<UserEntity> Users = await _UserGetAllService.GetAllUsersAsync();
-			//List<User> UserList = Users.Select(r => new User
-			//{
-			//	Id = r.Id,
-			//	Name = r.Name,
+			IEnumerable<UserEntity> Users = await _UserGetAllService.GetAllUsersAsync();
+			List<User> UserList = Users.Select(r => new User
+			{
+				Id = r.Id,
+				Username = r.Username,
+				Email = r.Email,
+				UserPets = r.UserPets,
 			//	Species = r.Species,
 			//	Age = r.Age,
 			//	Habitat = r.Habitat,
 			//	Weight = r.Weight,
 			//	Description = r.Description,
 			//	DateOfBirth = r.DateOfBirth
-			//}).ToList();
+			}).ToList();
 
-			return Ok();
+			return Ok(UserList);
 		}
 
 		// GET api/<UsersController>/5

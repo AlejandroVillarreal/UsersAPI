@@ -61,9 +61,9 @@ namespace UserAPI.Infrastructure.Repositories
 
 		public async Task<IEnumerable<UserEntity>> GetAllUsersAsync()
 		{
-			//IEnumerable<UserEntity> Users = await _db.Users.OrderByDescending(order => order.Name).ToListAsync();
-			//return Users;
-			throw new NotImplementedException();
+			IEnumerable<UserEntity> Users = await _db.Users.OrderByDescending(order => order.Username).ToListAsync();
+			return Users;
+			//throw new NotImplementedException();
 		}
 
 		public async Task<UserEntity> LoginAsync(Guid? id)
