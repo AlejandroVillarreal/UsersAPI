@@ -76,13 +76,15 @@ namespace UserAPI.Infrastructure.Repositories
 			UserEntity User = await _db.Users.FirstOrDefaultAsync(User => User.Email == Email);
 			return User;
 		}
-		public async Task<UserEntity> UpdateUserAsync(UserEntity? User)
+		public async Task<UserEntity> UpdateUserAsync(Guid id, UserEntity? User)
 		{
-			//UserEntity? matchingUser = await _db.Users.FirstOrDefaultAsync(User => User.Id == User.Id);
-			//if (matchingUser != null)
-			//{
+			UserEntity? matchingUser = await _db.Users.FirstOrDefaultAsync(User => User.Id == id);
+			if (matchingUser != null)
+			{
 
-			//	matchingUser.Name = User.Name;
+				matchingUser.Username = User.Username;
+				matchingUser.Email = User.Email;
+				
 			//	matchingUser.Habitat = User.Habitat;
 			//	matchingUser.DateOfBirth = User.DateOfBirth;
 			//	matchingUser.Weight = User.Weight;
@@ -90,9 +92,9 @@ namespace UserAPI.Infrastructure.Repositories
 			//	matchingUser.Species = User.Species;
 			//	matchingUser.Description = User.Description;
 
-			//	await _db.SaveChangesAsync();
-			//	return matchingUser;
-			//}
+				await _db.SaveChangesAsync();
+				return matchingUser;
+			}
 			//return User;
 			throw new NotImplementedException();
 		}

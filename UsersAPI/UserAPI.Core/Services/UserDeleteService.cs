@@ -20,7 +20,7 @@ namespace UserAPI.Core.Services
 		{
 			if (id != null)
 			{
-				UserEntity User = await _UserRepository.GetUserAsync("user email");
+				UserEntity User = await _UserRepository.GetUserByIdAsync(id);
 				if(User != null)
 				{
 					await _UserRepository.DeleteAsync(id.Value);

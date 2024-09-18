@@ -19,12 +19,13 @@ namespace UserAPI.Core.Services
 		}
 		public async Task<UserEntity> UpdateUserAsync(Guid id,UserEntity? User)
 		{
-			UserEntity? editedUser = await _UserRepository.GetUserAsync(User.Email);
+			UserEntity? editedUser = await _UserRepository.GetUserByIdAsync(id);
 			if(editedUser == null)
 			{
 				throw new ArgumentException("User with the given Id was not found");
 			}
-
+			editedUser.Username = User.Username;
+			editedUser.Email = User.Email;
 			//editedUser.Weight = User.Weight;
 			//editedUser.Age = User.Age;
 			//editedUser.Habitat = User.Habitat;
@@ -42,7 +43,7 @@ namespace UserAPI.Core.Services
 				throw new ArgumentException(validationResults.FirstOrDefault()?.ErrorMessage);
 			}
 			
-			await _UserRepository.UpdateUserAsync(editedUser);
+			await _UserRepository.UpdateUserAsync(id,editedUser);
 
 			return User;
 		}

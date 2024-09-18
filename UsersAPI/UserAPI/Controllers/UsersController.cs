@@ -117,15 +117,16 @@ namespace UserAPI.Controllers
 		}
 		// PUT api/<UsersController>/5
 		[HttpPut("{id}")]
-		public async Task<ActionResult<bool>> EditUser(Guid id,[FromBody] User User)
+		public async Task<ActionResult<bool>> EditUser(Guid id,[FromBody] UpdateUserRequest User)
 		{
-			//if (!ModelState.IsValid)
-			//{
-			//	return BadRequest(ModelState);
-			//}
-			//var editUser = new UserEntity
-			//{
-				
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			var editUser = new UserEntity
+			{
+				Username = User.Username,
+				Email = User.Email
 			//	Name = User.Name,
 			//	Species = User.Species,
 			//	Age = User.Age,
@@ -133,9 +134,9 @@ namespace UserAPI.Controllers
 			//	Weight = User.Weight,
 			//	Description = User.Description,
 			//	DateOfBirth = User.DateOfBirth
-			//};
+			};
 
-			//await _UserUpdateService.UpdateUserAsync(id, editUser);
+			await _UserUpdateService.UpdateUserAsync(id, editUser);
 			return Ok();
 		}
 

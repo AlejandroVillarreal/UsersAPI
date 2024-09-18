@@ -11,6 +11,6 @@
     "\\UserAPI\\Controllers",
     "\\UserAPI\\Properties"
   ],
-  "SelectedNode": "\\UserAPI.Core\\Domain\\Entities\\UserEntity.cs",
+  "SelectedNode": "\\UserAPI\\Controllers\\UsersController.cs",
   "PreviewInSolutionExplorer": false
 }

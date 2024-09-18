@@ -14,12 +14,13 @@ namespace UserAPI.Core.Domain.RepositoryContracts
 		Task<UserEntity> GetUserAsync(String Email);
 		Task<UserEntity> GetUserByIdAsync(Guid? id);
 		Task<bool> AddUserToUserAsync(UserEntity? entity, Guid UserId);
-
-		
-		//----------------WIP----------------------------------------------------------------
 		Task<bool> DeleteAsync(Guid? id);
+		Task<UserEntity> UpdateUserAsync(Guid id,UserEntity? entity);
 		Task<IEnumerable<UserEntity>> GetAllUsersAsync();
-		Task<UserEntity> UpdateUserAsync(UserEntity? entity);
+		//----------------WIP----------------------------------------------------------------
+
+		//
+
 
 	}
 }
