@@ -12,6 +12,6 @@
     "\\UserAPI\\Controllers",
     "\\UserAPI\\Properties"
   ],
-  "SelectedNode": "\\UsersAPI.sln",
+  "SelectedNode": "\\UserAPI\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
