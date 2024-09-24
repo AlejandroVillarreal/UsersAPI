@@ -5,12 +5,13 @@
     "\\UserAPI.Core",
     "\\UserAPI.Core\\Domain",
     "\\UserAPI.Core\\Domain\\Entities",
+    "\\UserAPI.Core\\Services",
     "\\UserAPI.Infrastructure",
     "\\UserAPI.Infrastructure\\DbContext",
     "\\UserAPI\\bin",
     "\\UserAPI\\Controllers",
     "\\UserAPI\\Properties"
   ],
-  "SelectedNode": "\\UserAPI\\Controllers\\UsersController.cs",
+  "SelectedNode": "\\UsersAPI.sln",
   "PreviewInSolutionExplorer": false
 }
